@@ -1,0 +1,44 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<body>
+ 
+
+ <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 border rounded">
+            <h5 class="text-center mt-3">Pergunta </h5>
+            <hr> 
+            <div class="">
+                <h5 class=" text-center"><%= asking.titulo %> </h5>
+                <p class="text-center "><%= asking.descricao%></p>
+            </div> 
+            <form method="post" action="/answers" class="p-4 border rounded">
+                          
+                   <div class="mb-3">
+                   <label for="">Resposta</label>
+                    <textarea class="form-control" name="body" id="" placeholder="Digite sua resposta aqui.."  ></textarea>
+                    <input type="hidden" name="asking" value="<%= asking.id %>">
+                    <button type="submit" class="btn mt-2 btn-primary mt-1">Responder</button>
+                </div>
+            </form>
+            <hr>
+            <h5>Respsotas</h5>
+            <hr> 
+           <div class=" mb-4">
+              <% answers.forEach(answer =>{%>
+               <p class="row"><%= answer.body%><p>
+
+               <%}) %>
+            </div>
+        </div>
+    </div>
+  
+ </div>
+
+
+<%- include('./partials/script') %>
+   
+</body>
+
+<%- include('./partials/footer') %>

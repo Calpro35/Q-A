@@ -1,19 +1,38 @@
-<%- include('./partials/header') %>
-<%- include('./partials/navbar_main') %>
+<link rel="stylesheet" href="/css/style.css">
+<%- include('./partials/header') %> <%- include('./partials/navbar_main') %>
 
-<body>
+<body class="">
+  <div class="container ">
+    <div class="row justify-content-center ">
+      <div class="col-md-6">
+        <h2 class="mb-3">Perguntas</h2>
 
-  <div class="container">
-    <h1>main</h1>
-    
-  </div>  
-       
+        <% askings.forEach(ask => { %> <% if (ask.titulo && ask.descricao) { %>
 
+        <div class="card mb-3">
+          <div class="card-body auto">
+            <h5><%= ask.titulo %></h5>
+          </div>
+          <div class="card-footer">
+           <a href="/ask/<%= ask.id %>"><button class="btn btn-primary">Responder</button></a>
+          </div>
+        </div>
+
+        <% } %> <% }) %>
+
+        <div class="d-flex justify-content-center p-3">
+          <a class="btn btn-primary " href="/ask">Perguntar</a>
+        </div>
+         
+      </div>
+    </div>
+  </div>
 
   <%- include('./partials/script') %>
-   
 </body>
 
-<%- include('./partials/footer') %>
 
- 
+<nav class="navbar navbar-expand-lg navbar-dark primary  justify-content-center mb-0">
+    <p class="mb-0 p-1 text-white">todos os direitos reservados</p>
+</nav>
+</html>
